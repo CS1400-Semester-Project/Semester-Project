@@ -100,16 +100,11 @@ public class test {
         for (int i = 0; i < itemCount; i++) {
             System.out.println((i + 1) + ". " + maxItemsArray[i]);
         }
-        System.out.printf("Total Cost: $%.2f\n", totalCost); //this will print out the price before taxes
-
-
-
-
-
-//ENTER TAX CALCULATIONS HERE
- 
-
-
+        System.out.printf("Cost: $%.2f\n", totalCost); //this will print out the price before taxes
+        System.out.println();
+        double taxedTotalCost = (totalCost * 0.1) + totalCost;
+        System.out.printf("Total Cost: $%.2f\n", taxedTotalCost);
+        System.out.println();
 
 
         System.out.println("Thank you for shopping at the Awesome Store please come again!");
@@ -155,4 +150,7 @@ public class test {
         3.49, 4.99, 2.19, 1.89, 0.99
     };
 }
+
+
+
 
