@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.lang.String;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,16 +50,16 @@ public class Main {
 
         // Loop for shopping
         while (itemCount < maxItemsArray.length) {
-                System.out.println();
-                System.out.println("Which aisle would you like to shop in?");
-                System.out.println("1. Cold Items");
-                System.out.println("2. Fresh Produce");
-                System.out.println("3. Meat & Seafood");
-                System.out.println("4. Breakfast Foods");
-                System.out.println("5. Drinks");
-                System.out.println("6. Canned Foods");
-                System.out.println("0. Finish shopping");
-                System.out.print("Enter aisle number to travel to: ");
+            System.out.println();
+            System.out.println("Which aisle would you like to shop in?");
+            System.out.println("1. Cold Items");
+            System.out.println("2. Fresh Produce");
+            System.out.println("3. Meat & Seafood");
+            System.out.println("4. Breakfast Foods");
+            System.out.println("5. Drinks");
+            System.out.println("6. Canned Foods");
+            System.out.println("0. Finish shopping");
+            System.out.print("Enter aisle number to travel to: ");
 
             try{
                 int aisleChoice = scnr.nextInt();
@@ -90,15 +91,36 @@ public class Main {
                         continue; // Continue to next iteration of loop
                     }
 
+                    //Add quantity option
+                    char quantityInput;
+                    //Repeat until given valid numeral input
+                    do {
+                        System.out.println("Enter quantity: ");
+                        quantityInput = scnr.next().charAt(0);
 
-                    int startIndex = (aisleChoice - 1) * 5; //Declares variable startIndex for arrays (5 items per row)
-                    maxItemsArray[itemCount] = availableItems[startIndex + choice - 1]; //
-                    totalCost += itemCosts[startIndex + choice - 1];
-                    itemCount++;
+                    } while (Character.isAlphabetic(quantityInput));
 
-                    if (itemCount == maxItemsArray.length) {
-                        break; // Finish shopping if max items reached
+                    //Convert to integer
+                    int quantity = (int)quantityInput-'0';
+
+                    //If quantity exceeds cart/basket size, fill cart
+                    if (quantity + itemCount > maxItemsArray.length) {
+                        quantity = maxItemsArray.length - itemCount;
+                        int excessAmount = maxItemsArray.length - itemCount;
+                        System.out.println("Chosen quantity exceeds available space. Added " + excessAmount + " instead.");
                     }
+
+
+                    int startIndex = (aisleChoice - 1) * 5;
+
+                    //add item N amount of times
+                    for (int i = 0; i < quantity; i++) {
+                        maxItemsArray[itemCount] = availableItems[startIndex + choice - 1];
+                        totalCost += itemCosts[startIndex + choice - 1];
+                        itemCount++;
+                    }
+
+                    System.out.println("Added " + quantity + " " + availableItems[startIndex+choice-1] + " to list.");
 
                     //Additional code to improve visibility
                     System.out.print("Added " + availableItems[startIndex + choice - 1] + " to cart.");
