@@ -1,7 +1,7 @@
 # Semester-Project
 Semester Project
 
-In order to run the code, our group used the IDE known as Visual Studio Code. You simply put the updatedtest file, upload it to your IDE, rename the first main to use the file, and then simply run the code.
+To run the code, our group used the IDE known as Visual Studio Code. You simply put the updatedtest file, and upload it to your IDE, once uploaded to your IDE, you must rename the .txt file to .java or whatever your IDE requires then rename the first main to the name of the file(before the ".java"), and then run the code.
 
 You will then follow up, answering a series of questions that will be printed out to your screen, the code will go along with you and give you in-depth instructions on what to do, taking you through the simulation. 
 
