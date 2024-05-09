@@ -1,5 +1,6 @@
 # Semester-Project
-Semester Project
+Semester Project - Convenience Store Simulation
+Please use the updatedtest to access the complete code, the test and updated files are the progressions our group made.
 
 To run the code, our group used the IDE known as Visual Studio Code. You simply put the updatedtest file, and upload it to your IDE, once uploaded to your IDE, you must rename the .txt file to .java or whatever your IDE requires then rename the first main to the name of the file(before the ".java"), and then run the code.
 
